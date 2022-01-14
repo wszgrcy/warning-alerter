@@ -1,9 +1,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { WarnItem } from './warn-item';
-const WARN_START_REGEXP = /^((.*):(\d+):(\d+)):\swarning:(.*)$/;
+const WARN_START_REGEXP = /^((.*):(\d+):(\d+)):\swarning:\s(.*)$/;
 const WARN_END_REGEXP = /\d+ warnings? generated\./;
-const ROOT_DIR = `/Users/pw/workspace/wukong/wukong-editor/test`;
+// 这里处理的不够完美,但是我确实没有看出来,构建生产的路径是一哪个为相对路径的,只能通过给予的日志推测出为`wukong-editor`下的某个文件夹
+const ROOT_DIR = `/Users/pw/workspace/wukong/wukong-editor/out`;
 export class WarningAlerter {
   private absoluteFilePath: string;
   private content!: string;
@@ -67,7 +68,7 @@ export class WarningAlerter {
       const element = list[i];
 
       console.log(`⚠️  ⚠️  ⚠️  Warning [${i + 1}/${list.length}] ⚠️  ⚠️  ⚠️`);
-      console.log(`\n`);
+      console.log(``);
       console.log(
         `📌 Location: ${this.pathFormat(element.location.path)}:${
           element.location.line
@@ -75,15 +76,17 @@ export class WarningAlerter {
       );
       console.log(`🔎 Message: ${element.message}`);
       console.log(`📝 Detail:`);
+      console.log(``);
       for (let i = 0; i < element.detail!.length; i++) {
         const detail = element.detail![i];
         console.log(`${detail}`);
       }
+      console.log(``);
     }
   }
   private pathFormat(filePath: string) {
     filePath = filePath.replace(/\/[^\/]+\/\.\./, '');
-    return path.relative(ROOT_DIR, filePath);
+    return path.posix.relative(ROOT_DIR, filePath);
   }
 }
 
