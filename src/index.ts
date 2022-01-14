@@ -30,17 +30,16 @@ export class WarningAlerter {
       let result = element.match(WARN_START_REGEXP);
       if (result) {
         if (isWarn) {
-          this.collectionList.push(warnItem);
           warnItem = new WarnItem();
         }
         isWarn = true;
         warnItem.location = result[1];
         warnItem.message = result[2];
+        this.collectionList.push(warnItem);
         continue;
       }
       if (WARN_END_REGEXP.test(element)) {
         if (isWarn) {
-          this.collectionList.push(warnItem);
           warnItem = new WarnItem();
         }
         isWarn = false;
