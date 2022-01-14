@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { WarnItem } from './type';
-const WARN_START_REGEXP = /^(.*):warning:(.*)$/;
+const WARN_START_REGEXP = /^(.*):(?:\s*)warning:(.*)$/;
 // const WARN_END_REGEXP=/(.*):warning:(.*)/
 export class WarningAlerter {
   private absoluteFilePath: string;
