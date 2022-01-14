@@ -49,9 +49,6 @@ export class WarningAlerter {
         warnItem.detail.push(element);
       }
     }
-    if (isWarn) {
-      this.collectionList.push(warnItem);
-    }
   }
   private print() {
     for (let i = 0; i < this.collectionList.length; i++) {
