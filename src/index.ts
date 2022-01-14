@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { WarnItem } from './warn-item';
 const WARN_START_REGEXP = /^((.*):(\d+):(\d+)):\swarning:\s(.*)$/;
-const WARN_END_REGEXP = /\d+ warnings? generated\./;
+const WARN_END_REGEXP = /\d+ warnings? generated\.|In file included/;
 // 这里处理的不够完美,但是我确实没有看出来,构建生产的路径是一哪个为相对路径的,只能通过给予的日志推测出为`wukong-editor`下的某个文件夹
 const ROOT_DIR = `/Users/pw/workspace/wukong/wukong-editor/out`;
 export class WarningAlerter {
@@ -47,7 +47,9 @@ export class WarningAlerter {
           column: result[4],
         };
         warnItem.message = result[5];
-        this.collectionObject[result[1]] = warnItem;
+        if (!this.collectionObject[result[1]]) {
+          this.collectionObject[result[1]] = warnItem;
+        }
         continue;
       }
       if (WARN_END_REGEXP.test(element)) {
@@ -77,8 +79,8 @@ export class WarningAlerter {
       console.log(`🔎 Message: ${element.message}`);
       console.log(`📝 Detail:`);
       console.log(``);
-      for (let i = 0; i < element.detail!.length; i++) {
-        const detail = element.detail![i];
+      for (let i = 0; i < element.detail.length; i++) {
+        const detail = element.detail[i];
         console.log(`${detail}`);
       }
       console.log(``);
