@@ -11,5 +11,6 @@ describe('index', () => {
       }
       expect(element.location.path).not.toEqual('ld');
     }
+    expect(list.length).toBe(50);
   });
 });
