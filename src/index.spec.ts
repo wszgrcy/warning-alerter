@@ -8,6 +8,7 @@ describe('index', () => {
       for (const item of element.detail!) {
         expect(item).not.toContain('warnings generated');
       }
+      expect(element.location).not.toEqual('ld');
     }
   });
 });
