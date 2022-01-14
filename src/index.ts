@@ -55,7 +55,9 @@ export class WarningAlerter {
       const element = this.collectionList[i];
 
       console.log(
-        `⚠️  ⚠️  ⚠️  Warning [${i}/${this.collectionList.length}] ⚠️  ⚠️  ⚠️`
+        `⚠️  ⚠️  ⚠️  Warning [${i + 1}/${
+          this.collectionList.length
+        }] ⚠️  ⚠️  ⚠️`
       );
       console.log(`\n`);
       console.log(`📌 Location: ${element.location}`);
