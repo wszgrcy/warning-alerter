@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { WarnItem } from './type';
+import { WarnItem } from './warn-item';
 const WARN_START_REGEXP = /^(.*:\d+:\d+):\swarning:(.*)$/;
 const WARN_END_REGEXP = /\d+ warnings? generated\./;
 export class WarningAlerter {
@@ -23,32 +23,35 @@ export class WarningAlerter {
   private collectionWarn() {
     let list = this.content.split('\n');
     let isWarn = false;
-    let item: WarnItem = { detail: [] };
+    let warnItem = new WarnItem();
     for (let i = 0; i < list.length; i++) {
       const element = list[i];
 
       let result = element.match(WARN_START_REGEXP);
       if (result) {
         if (isWarn) {
-          this.collectionList.push(item);
-          item = { detail: [] };
+          this.collectionList.push(warnItem);
+          warnItem = new WarnItem();
         }
         isWarn = true;
-        item.location = result[1];
-        item.message = result[2];
+        warnItem.location = result[1];
+        warnItem.message = result[2];
         continue;
       }
       if (WARN_END_REGEXP.test(element)) {
         if (isWarn) {
-          this.collectionList.push(item);
-          item = { detail: [] };
+          this.collectionList.push(warnItem);
+          warnItem = new WarnItem();
         }
         isWarn = false;
         continue;
       }
       if (isWarn) {
-        item.detail!.push(element);
+        warnItem.detail.push(element);
       }
+    }
+    if (isWarn) {
+      this.collectionList.push(warnItem);
     }
   }
   private print() {

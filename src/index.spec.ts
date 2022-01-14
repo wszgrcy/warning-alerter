@@ -5,7 +5,7 @@ describe('index', () => {
     instance.run();
     for (let i = 0; i < instance.collectionList.length; i++) {
       const element = instance.collectionList[i];
-      for (const item of element.detail!) {
+      for (const item of element.detail) {
         expect(item).not.toContain('warnings generated');
       }
       expect(element.location).not.toEqual('ld');
