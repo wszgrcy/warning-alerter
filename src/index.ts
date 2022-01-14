@@ -7,7 +7,7 @@ export class WarningAlerter {
   private absoluteFilePath: string;
   private content!: string;
   /**@internal  */
-  collectionList: WarnItem[] = [];
+  collectionObject: Record<string, WarnItem> = {};
   constructor(filePath: string) {
     this.absoluteFilePath = path.resolve(process.cwd(), filePath);
   }
@@ -32,10 +32,16 @@ export class WarningAlerter {
         if (isWarn) {
           warnItem = new WarnItem();
         }
+        if (
+          result[1].includes('third-party') ||
+          result[1].startsWith('/Applications')
+        ) {
+          continue;
+        }
         isWarn = true;
         warnItem.location = result[1];
         warnItem.message = result[2];
-        this.collectionList.push(warnItem);
+        this.collectionObject[result[1]] = warnItem;
         continue;
       }
       if (WARN_END_REGEXP.test(element)) {
@@ -51,14 +57,11 @@ export class WarningAlerter {
     }
   }
   private print() {
-    for (let i = 0; i < this.collectionList.length; i++) {
-      const element = this.collectionList[i];
+    let list = Object.values(this.collectionObject);
+    for (let i = 0; i < list.length; i++) {
+      const element = list[i];
 
-      console.log(
-        `⚠️  ⚠️  ⚠️  Warning [${i + 1}/${
-          this.collectionList.length
-        }] ⚠️  ⚠️  ⚠️`
-      );
+      console.log(`⚠️  ⚠️  ⚠️  Warning [${i + 1}/${list.length}] ⚠️  ⚠️  ⚠️`);
       console.log(`\n`);
       console.log(`📌 Location: ${element.location}`);
       console.log(`🔎 Message: ${element.message}`);

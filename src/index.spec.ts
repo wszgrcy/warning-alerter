@@ -3,8 +3,9 @@ describe('index', () => {
   it('WarningAlerter', () => {
     let instance = new WarningAlerter('./build.log');
     instance.run();
-    for (let i = 0; i < instance.collectionList.length; i++) {
-      const element = instance.collectionList[i];
+    let list = Object.values(instance.collectionObject);
+    for (let i = 0; i < list.length; i++) {
+      const element = list[i];
       for (const item of element.detail) {
         expect(item).not.toContain('warnings generated');
       }
