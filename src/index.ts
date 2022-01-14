@@ -72,5 +72,8 @@ export class WarningAlerter {
 }
 
 if (require.main === module) {
-  new WarningAlerter(process.argv[1]).run();
+  if (typeof process.argv[2] !== 'string') {
+    throw new Error('请传入一个路径');
+  }
+  new WarningAlerter(process.argv[2]).run();
 }
