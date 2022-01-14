@@ -1,0 +1,516 @@
+⚠️  ⚠️  ⚠️  Warning [1/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/PlaceImageControl.h:16:1
+🔎 Message: class 'ControlManager' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+📝 Detail:
+
+class ControlManager;
+^
+/Users/pw/workspace/wukong/wukong-editor/test/../src/control/DrawControl.h:10:8: note: previous use is here
+struct ControlManager;
+       ^
+
+⚠️  ⚠️  ⚠️  Warning [2/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/base/BaseControl2.h:9:1
+🔎 Message: class 'Document' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+📝 Detail:
+
+class Document;
+^
+/Users/pw/workspace/wukong/wukong-editor/test/../src/core/Document.h:15:8: note: previous use is here
+struct Document {
+       ^
+/Users/pw/workspace/wukong/wukong-editor/test/../src/control/base/BaseControl2.h:9:1: note: did you mean struct here?
+class Document;
+^~~~~
+struct
+
+⚠️  ⚠️  ⚠️  Warning [3/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/ControlManager.h:43:1
+🔎 Message: 'ControlManager' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+📝 Detail:
+
+struct ControlManager final : std::enable_shared_from_this<ControlManager>, public EventCapturer {
+^
+/Users/pw/workspace/wukong/wukong-editor/test/../src/control/PlaceImageControl.h:16:1: note: did you mean struct here?
+class ControlManager;
+^~~~~
+struct
+
+⚠️  ⚠️  ⚠️  Warning [4/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/service/EditorBasicOps.h:45:26
+🔎 Message: unused variable 'node' [-Wunused-variable]
+📝 Detail:
+
+                    auto node = documentManager_->getCurrentDocument()->activateNodes.front();
+                         ^
+
+⚠️  ⚠️  ⚠️  Warning [5/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/service/EditorBasicOps.h:211:29
+🔎 Message: loop variable 'id' creates a copy from type 'const std::string' [-Wrange-loop-construct]
+📝 Detail:
+
+            for (const auto id : proto->ids()) {
+                            ^
+/Users/pw/workspace/wukong/wukong-editor/test/../src/service/EditorBasicOps.h:211:18: note: use reference type 'const std::string &' to prevent copying
+            for (const auto id : proto->ids()) {
+                 ^~~~~~~~~~~~~~~
+                            &
+
+⚠️  ⚠️  ⚠️  Warning [6/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/service/EditorBasicOps.h:243:29
+🔎 Message: loop variable 'id' creates a copy from type 'const std::string' [-Wrange-loop-construct]
+📝 Detail:
+
+            for (const auto id : proto->ids()) {
+                            ^
+/Users/pw/workspace/wukong/wukong-editor/test/../src/service/EditorBasicOps.h:243:18: note: use reference type 'const std::string &' to prevent copying
+            for (const auto id : proto->ids()) {
+                 ^~~~~~~~~~~~~~~
+                            &
+
+⚠️  ⚠️  ⚠️  Warning [7/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/MultiSelectBoundsControl.cpp:9:7
+🔎 Message: field 'documentManager_' will be initialized after base 'Wukong::BoundsControl' [-Wreorder-ctor]
+📝 Detail:
+
+    : documentManager_(documentManager), BoundsControl() {
+      ^
+
+⚠️  ⚠️  ⚠️  Warning [8/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/bounds/BoundsControl2.h:17:1
+🔎 Message: class 'Document' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+📝 Detail:
+
+class Document;
+^
+/Users/pw/workspace/wukong/wukong-editor/test/../src/core/Document.h:15:8: note: previous use is here
+struct Document {
+       ^
+/Users/pw/workspace/wukong/wukong-editor/test/../src/control/bounds/BoundsControl2.h:17:1: note: did you mean struct here?
+class Document;
+^~~~~
+struct
+
+⚠️  ⚠️  ⚠️  Warning [9/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/ControlManager.cpp:275:10
+🔎 Message: unused variable 'result' [-Wunused-variable]
+📝 Detail:
+
+    auto result = EventCapturer::dispatchMouseDown(event);
+         ^
+
+⚠️  ⚠️  ⚠️  Warning [10/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/ControlManager.cpp:283:10
+🔎 Message: unused variable 'result' [-Wunused-variable]
+📝 Detail:
+
+    auto result = EventCapturer::dispatchDoubleClick(event);
+         ^
+
+⚠️  ⚠️  ⚠️  Warning [11/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/Document.h:15:1
+🔎 Message: 'Document' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+📝 Detail:
+
+struct Document {
+^
+/Users/pw/workspace/wukong/wukong-editor/test/../src/control/base/BaseControl2.h:9:1: note: did you mean struct here?
+class Document;
+^~~~~
+struct
+
+⚠️  ⚠️  ⚠️  Warning [12/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/image/ImageTileImageSegmentHandle.h:9:1
+🔎 Message: 'ImageTileImageSegmentHandle' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+📝 Detail:
+
+struct ImageTileImageSegmentHandle final : public BoundsSegmentHandle {
+^
+/Users/pw/workspace/wukong/wukong-editor/src/control/image/ImageTileImageControl.h:10:1: note: did you mean struct here?
+class ImageTileImageSegmentHandle;
+^~~~~
+struct
+
+⚠️  ⚠️  ⚠️  Warning [13/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/image/ImageTileImageVertexHandle.h:9:1
+🔎 Message: 'ImageTileImageVertexHandle' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+📝 Detail:
+
+struct ImageTileImageVertexHandle : public BoundsVertexHandle {
+^
+/Users/pw/workspace/wukong/wukong-editor/src/control/image/ImageTileImageControl.h:11:1: note: did you mean struct here?
+class ImageTileImageVertexHandle;
+^~~~~
+struct
+
+⚠️  ⚠️  ⚠️  Warning [14/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorHandle.cpp:194:64
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+            this->target->vectorNetwork.addVertex(VectorVertex{this->startPoint.fX, this->startPoint.fY});
+                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                               {                                       }
+
+⚠️  ⚠️  ⚠️  Warning [15/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorHandle.cpp:195:64
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+            this->target->vectorNetwork.addVertex(VectorVertex{this->endPoint.fX, this->endPoint.fY});
+                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                               {                                   }
+
+⚠️  ⚠️  ⚠️  Warning [16/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorHandle.cpp:357:14
+🔎 Message: unused variable 'segment' [-Wunused-variable]
+📝 Detail:
+
+        let &segment = getSegment();
+             ^
+
+⚠️  ⚠️  ⚠️  Warning [17/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorHandle.cpp:494:41
+🔎 Message: '&&' within '||' [-Wlogical-op-parentheses]
+📝 Detail:
+
+        if (targetEdge.isTangentInverse && t2 != nullptr || (!targetEdge.isTangentInverse && t1 != nullptr)) {
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~ ~~
+/Users/pw/workspace/wukong/wukong-editor/src/control/vector/VectorHandle.cpp:494:41: note: place parentheses around the '&&' expression to silence this warning
+        if (targetEdge.isTangentInverse && t2 != nullptr || (!targetEdge.isTangentInverse && t1 != nullptr)) {
+                                        ^
+            (                                           )
+
+⚠️  ⚠️  ⚠️  Warning [18/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorHandle.h:118:13
+🔎 Message: private field 'mouseDownPosition' is not used [-Wunused-private-field]
+📝 Detail:
+
+    SkPoint mouseDownPosition;
+            ^
+
+⚠️  ⚠️  ⚠️  Warning [19/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorHandle.h:119:13
+🔎 Message: private field 'startPoint' is not used [-Wunused-private-field]
+📝 Detail:
+
+    SkPoint startPoint;
+            ^
+
+⚠️  ⚠️  ⚠️  Warning [20/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorHandle.h:120:13
+🔎 Message: private field 'endPoint' is not used [-Wunused-private-field]
+📝 Detail:
+
+    SkPoint endPoint;
+            ^
+
+⚠️  ⚠️  ⚠️  Warning [21/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorControl.cpp:303:13
+🔎 Message: loop variable '[_, tangentHandles]' creates a copy from type 'const std::pair<const unsigned int, std::tuple<std::shared_ptr<Wukong::VectorTangentHandle>, std::shared_ptr<Wukong::VectorTangentHandle>>>' [-Wrange-loop-construct]
+📝 Detail:
+
+    for (let[_, tangentHandles] : this->tangentHandles) {
+            ^
+/Users/pw/workspace/wukong/wukong-editor/src/control/vector/VectorControl.cpp:303:10: note: use reference type 'const std::pair<const unsigned int, std::tuple<std::shared_ptr<Wukong::VectorTangentHandle>, std::shared_ptr<Wukong::VectorTangentHandle>>> &' to prevent copying
+    for (let[_, tangentHandles] : this->tangentHandles) {
+         ^~~~~~~~~~~~~~~~~~~~~~~~
+            &
+/Users/pw/workspace/wukong/wukong-editor/src/core/../common.h:18:13: note: expanded from macro 'let'
+#define let const auto
+            ^
+
+⚠️  ⚠️  ⚠️  Warning [22/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorControl.cpp:432:63
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+    auto vertexIndex = this->target->vectorNetwork.addVertex({midiumPoint.fX, midiumPoint.fY});
+                                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                              {                             }
+
+⚠️  ⚠️  ⚠️  Warning [23/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorControl.cpp:468:11
+🔎 Message: unused variable 'toVertex' [-Wunused-variable]
+📝 Detail:
+
+    auto &toVertex = target->vectorNetwork.vertices[to];
+          ^
+
+⚠️  ⚠️  ⚠️  Warning [24/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorControl.cpp:467:11
+🔎 Message: unused variable 'fromVertex' [-Wunused-variable]
+📝 Detail:
+
+    auto &fromVertex = target->vectorNetwork.vertices[from];
+          ^
+
+⚠️  ⚠️  ⚠️  Warning [25/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorControl.cpp:511:11
+🔎 Message: unused variable 'fromSegment' [-Wunused-variable]
+📝 Detail:
+
+    auto &fromSegment = target->vectorNetwork.segments[from];
+          ^
+
+⚠️  ⚠️  ⚠️  Warning [26/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorControl.cpp:967:71
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+            startVertexIndex = this->target->vectorNetwork.addVertex({p1.fX, p1.fY});
+                                                                      ^~~~~~~~~~~~
+                                                                      {           }
+
+⚠️  ⚠️  ⚠️  Warning [27/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorControl.cpp:992:55
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+        return this->target->vectorNetwork.addVertex({endPoint.fX, endPoint.fY});
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~
+                                                      {                       }
+
+⚠️  ⚠️  ⚠️  Warning [28/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorControl.cpp:1037:71
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+            startVertexIndex = this->target->vectorNetwork.addVertex({startPoint.fX, startPoint.fY});
+                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                                      {                           }
+
+⚠️  ⚠️  ⚠️  Warning [29/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorControl.cpp:1301:15
+🔎 Message: unused variable 'segment' [-Wunused-variable]
+📝 Detail:
+
+        auto &segment = this->target->vectorNetwork.segments[segmentHandle->segmentIndex];
+              ^
+
+⚠️  ⚠️  ⚠️  Warning [30/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorControl.cpp:1383:15
+🔎 Message: unused variable 'segment' [-Wunused-variable]
+📝 Detail:
+
+        auto &segment = this->target->vectorNetwork.segments[targetEdge.segmentIndex];
+              ^
+
+⚠️  ⚠️  ⚠️  Warning [31/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/vector/VectorControl.cpp:1340:9
+🔎 Message: unused variable 'targetVector' [-Wunused-variable]
+📝 Detail:
+
+    let targetVector = event.nodePoint - this->mouseDownPosition;
+        ^
+
+⚠️  ⚠️  ⚠️  Warning [32/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/control/DrawControl.h:10:1
+🔎 Message: struct 'ControlManager' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+📝 Detail:
+
+struct ControlManager;
+^
+/Users/pw/workspace/wukong/wukong-editor/src/control/PlaceImageControl.h:16:7: note: previous use is here
+class ControlManager;
+      ^
+
+⚠️  ⚠️  ⚠️  Warning [33/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../test/src/vector-network-libs/VectorNetworkLibTest.cpp:11:10
+🔎 Message: unused variable 'cmp' [-Wunused-variable]
+📝 Detail:
+
+    auto cmp = [&](const Vector &a, const Vector &b) { return a.fX == b.fX ? a.fY < b.fY : a.fX < b.fX; };
+         ^
+
+⚠️  ⚠️  ⚠️  Warning [34/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../test/src/control/EditorModeControl.cpp:1:9
+🔎 Message: #pragma once in main file [-Wpragma-once-outside-header]
+📝 Detail:
+
+#pragma once
+        ^
+
+⚠️  ⚠️  ⚠️  Warning [35/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../test/src/control/BoundsControlTest.cpp:1:9
+🔎 Message: #pragma once in main file [-Wpragma-once-outside-header]
+📝 Detail:
+
+#pragma once
+        ^
+
+⚠️  ⚠️  ⚠️  Warning [36/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/libs/VectorNetworkLib.cpp:422:27
+🔎 Message: unused variable 's1' [-Wunused-variable]
+📝 Detail:
+
+            VectorSegment s1 = vectorNetwork.segments[i];
+                          ^
+
+⚠️  ⚠️  ⚠️  Warning [37/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/libs/VectorNetworkLib.cpp:423:27
+🔎 Message: unused variable 's2' [-Wunused-variable]
+📝 Detail:
+
+            VectorSegment s2 = vectorNetwork.segments[j];
+                          ^
+
+⚠️  ⚠️  ⚠️  Warning [38/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/libs/VectorNetworkLib.cpp:407:9
+🔎 Message: unused variable 'nVertices' [-Wunused-variable]
+📝 Detail:
+
+    let nVertices = static_cast<int>(vectorNetwork.vertices.size());
+        ^
+
+⚠️  ⚠️  ⚠️  Warning [39/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/libs/VectorNetworkLib.cpp:467:27
+🔎 Message: unused variable 's1' [-Wunused-variable]
+📝 Detail:
+
+            VectorSegment s1 = vectorNetwork.segments[i];
+                          ^
+
+⚠️  ⚠️  ⚠️  Warning [40/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/libs/VectorNetworkLib.cpp:468:27
+🔎 Message: unused variable 's2' [-Wunused-variable]
+📝 Detail:
+
+            VectorSegment s2 = vectorNetwork.segments[j];
+                          ^
+
+⚠️  ⚠️  ⚠️  Warning [41/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/libs/VectorNetworkLib.cpp:710:9
+🔎 Message: unused variable 'nVertex' [-Wunused-variable]
+📝 Detail:
+
+    let nVertex = vectorNetwork.vertices.size();
+        ^
+
+⚠️  ⚠️  ⚠️  Warning [42/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/VectorNode.cpp:52:62
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+                auto start = this->tryAddVertex(VectorVertex{pts[0].fX, pts[0].fY});
+                                                             ^~~~~~~~~~~~~~~~~~~~
+                                                             {                   }
+
+⚠️  ⚠️  ⚠️  Warning [43/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/VectorNode.cpp:53:60
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+                auto end = this->tryAddVertex(VectorVertex{pts[1].fX, pts[1].fY});
+                                                           ^~~~~~~~~~~~~~~~~~~~
+                                                           {                   }
+
+⚠️  ⚠️  ⚠️  Warning [44/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/VectorNode.cpp:58:62
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+                auto start = this->tryAddVertex(VectorVertex{pts[0].fX, pts[0].fY});
+                                                             ^~~~~~~~~~~~~~~~~~~~
+                                                             {                   }
+
+⚠️  ⚠️  ⚠️  Warning [45/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/VectorNode.cpp:59:60
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+                auto end = this->tryAddVertex(VectorVertex{pts[2].fX, pts[2].fY});
+                                                           ^~~~~~~~~~~~~~~~~~~~
+                                                           {                   }
+
+⚠️  ⚠️  ⚠️  Warning [46/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/VectorNode.cpp:65:62
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+                auto start = this->tryAddVertex(VectorVertex{pts[0].fX, pts[0].fY});
+                                                             ^~~~~~~~~~~~~~~~~~~~
+                                                             {                   }
+
+⚠️  ⚠️  ⚠️  Warning [47/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/VectorNode.cpp:66:60
+🔎 Message: suggest braces around initialization of subobject [-Wmissing-braces]
+📝 Detail:
+
+                auto end = this->tryAddVertex(VectorVertex{pts[3].fX, pts[3].fY});
+                                                           ^~~~~~~~~~~~~~~~~~~~
+                                                           {                   }
+
+⚠️  ⚠️  ⚠️  Warning [48/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/VectorNetwork.cpp:163:16
+🔎 Message: unused variable 'vertex' [-Wunused-variable]
+📝 Detail:
+
+    for (auto &vertex : vertices) {
+               ^
+
+⚠️  ⚠️  ⚠️  Warning [49/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/VectorNetwork.cpp:378:9
+🔎 Message: unused variable 'nSegments' [-Wunused-variable]
+📝 Detail:
+
+    int nSegments = static_cast<int>(this->segments.size());
+        ^
+
+⚠️  ⚠️  ⚠️  Warning [50/50] ⚠️  ⚠️  ⚠️
+
+📌 Location: ../src/core/vectorNetwork/VectorNetwork.cpp:377:9
+🔎 Message: unused variable 'nVertices' [-Wunused-variable]
+📝 Detail:
+
+    int nVertices = static_cast<int>(this->vertices.size());
+        ^
