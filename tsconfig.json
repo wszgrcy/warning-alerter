@@ -1,5 +1,6 @@
 {
   "compilerOptions": {},
   "include": [],
-  "references": []
+  "files": [],
+  "references": [{ "path": "./tsconfig.main.json" }]
 }
