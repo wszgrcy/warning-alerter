@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky install",
     "test": "npm run test:jasmine",
-    "test:jasmine": "tsc -p ./script/tsconfig.startup-jasmine.json && node ./script/startup-jasmine.js",
+    "test:jasmine": "ts-node -P ./tsconfig.main.json ./node_modules/jasmine/bin/jasmine --config=jasmine.json",
     "coverage": "nyc npm run test"
   },
   "author": "",
