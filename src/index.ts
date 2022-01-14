@@ -1,8 +1,9 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { WarnItem } from './warn-item';
-const WARN_START_REGEXP = /^(.*:\d+:\d+):\swarning:(.*)$/;
+const WARN_START_REGEXP = /^((.*):(\d+):(\d+)):\swarning:(.*)$/;
 const WARN_END_REGEXP = /\d+ warnings? generated\./;
+const ROOT_DIR = `/Users/pw/workspace/wukong/wukong-editor/test`;
 export class WarningAlerter {
   private absoluteFilePath: string;
   private content!: string;
@@ -39,8 +40,12 @@ export class WarningAlerter {
           continue;
         }
         isWarn = true;
-        warnItem.location = result[1];
-        warnItem.message = result[2];
+        warnItem.location = {
+          path: result[2],
+          line: result[3],
+          column: result[4],
+        };
+        warnItem.message = result[5];
         this.collectionObject[result[1]] = warnItem;
         continue;
       }
@@ -63,7 +68,11 @@ export class WarningAlerter {
 
       console.log(`⚠️  ⚠️  ⚠️  Warning [${i + 1}/${list.length}] ⚠️  ⚠️  ⚠️`);
       console.log(`\n`);
-      console.log(`📌 Location: ${element.location}`);
+      console.log(
+        `📌 Location: ${this.pathFormat(element.location.path)}:${
+          element.location.line
+        }:${element.location.column}`
+      );
       console.log(`🔎 Message: ${element.message}`);
       console.log(`📝 Detail:`);
       for (let i = 0; i < element.detail!.length; i++) {
@@ -71,6 +80,10 @@ export class WarningAlerter {
         console.log(`${detail}`);
       }
     }
+  }
+  private pathFormat(filePath: string) {
+    filePath = filePath.replace(/\/[^\/]+\/\.\./, '');
+    return path.relative(ROOT_DIR, filePath);
   }
 }
 
